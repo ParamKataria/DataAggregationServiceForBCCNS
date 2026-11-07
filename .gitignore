@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.uv/
+
+.env
+scraper/.env
+*.env
+!example.env
+
+.DS_Store
+output/

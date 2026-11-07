@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BCCNS metadata desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/desk.css">
+</head>
+<body>
+  <header class="bar">
+    <p class="mark">BCCNS</p>
+    <p class="where">Metadata desk</p>
+  </header>
+  <main>
+    <h1>Read a page or a spreadsheet</h1>
+    <p class="lede">A page is read for its metadata and the resources it lists. A spreadsheet is read cell by cell. Both come back as the same 22-column Dublin Core sheet, written beside this project, not over the main collection file.</p>
+
+    <div class="intakes">
+      <form id="link-form" class="intake">
+        <img src="/icons/link.svg" width="24" height="24" alt="">
+        <h2>Page link</h2>
+        <label for="url">Address</label>
+        <input id="url" name="url" type="url" inputmode="url" autocomplete="url" spellcheck="false" placeholder="https://archives.novascotia.ca/" required>
+        <button type="submit">Read page</button>
+      </form>
+
+      <form id="sheet-form" class="intake">
+        <img src="/icons/sheet.svg" width="24" height="24" alt="">
+        <h2>Spreadsheet</h2>
+        <label class="drop" id="drop" for="sheet">
+          <span id="file-name">Drop a .csv here, or choose a file</span>
+          <input id="sheet" name="sheet" type="file" accept=".csv,text/csv">
+        </label>
+        <button type="submit">Read spreadsheet</button>
+      </form>
+    </div>
+
+    <section id="ledger" class="ledger" aria-live="polite">
+      <div class="ledger-head">
+        <h2>Ledger</h2>
+        <p id="ledger-note">Nothing read yet.</p>
+      </div>
+      <p id="ledger-detail"></p>
+      <div class="table-wrap">
+        <table>
+          <caption class="sr">Dublin Core preview</caption>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Creator</th>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Subject</th>
+              <th>Place</th>
+            </tr>
+          </thead>
+          <tbody id="rows">
+            <tr class="quiet">
+              <td colspan="6">The first rows of a read will sit here. The download keeps all 22 columns.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="/desk.js"></script>
+</body>
+</html>
